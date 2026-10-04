@@ -216,12 +216,12 @@ function startGame() {
 
 function beginLevel() {
   const settings = [
-    {moves: 30, target: 500},
-    {moves: 28, target: 1000},
-    {moves: 26, target: 1500},
-    {moves: 24, target: 2200},
-    {moves: 22, target: 3000}
-  ];
+  {moves: 30, target: 200},
+  {moves: 28, target: 500},
+  {moves: 26, target: 1000},
+  {moves: 24, target: 1500},
+  {moves: 22, target: 2000}
+];
   const s = settings[Math.min(level - 1, settings.length - 1)];
   score = 0;
   levelScore = 0;

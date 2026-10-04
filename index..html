@@ -241,6 +241,12 @@ function beginLevel() {
 }
 
 function nextLevel() {
+  if (level >= 5) {
+    level = 1;
+    beginLevel();
+    return;
+  }
+
   level++;
   beginLevel();
 }

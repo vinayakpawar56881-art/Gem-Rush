@@ -426,12 +426,29 @@ function clearMatches() {
 
 function showLevelComplete() {
   busy = true;
+
   const overlay = document.getElementById("levelOverlay");
-  document.getElementById("overlayTitle").textContent = "LEVEL " + level + " COMPLETE! 🎉";
+  const nextButton = document.getElementById("nextButton");
+
+  document.getElementById("overlayTitle").textContent =
+    "LEVEL " + level + " COMPLETE! 🎉";
+
   document.getElementById("overlayText").textContent =
     "Score: " + score + " / Target: " + targetScore;
-  document.getElementById("nextButton").textContent =
-    level >= 5 ? "PLAY BONUS LEVEL ▶" : "NEXT LEVEL ▶";
+
+  nextButton.textContent =
+    level >= 5 ? "PLAY AGAIN 🔄" : "NEXT LEVEL ▶";
+
+  nextButton.onclick = function() {
+    if (level >= 5) {
+      level = 1;
+    } else {
+      level++;
+    }
+
+    beginLevel();
+  };
+
   overlay.style.display = "flex";
 }
 

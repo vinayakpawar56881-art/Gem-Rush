@@ -246,11 +246,10 @@ function nextLevel() {
     beginLevel();
     return;
   }
-
   level++;
   beginLevel();
 }
-
+ 
 function restartLevel() {
   beginLevel();
 }
@@ -370,14 +369,28 @@ function clearMatches() {
   document.getElementById("score").textContent = score;
 
   if (score >= targetScore) {
-    matches.forEach(key => {
-      const [r,c] = key.split(",").map(Number);
-      board[r][c] = -1;
-    });
-    render();
-    setTimeout(() => showLevelComplete(), 350);
-    return;
-  }
+
+  matches.forEach(key => {
+
+    const [r,c] = key.split(",").map(Number);
+
+    board[r][c] = -1;
+
+  });
+
+  render();
+
+  busy = true;
+
+  setTimeout(() => {
+
+    showLevelComplete();
+
+  }, 350);
+
+  return;
+
+}
 
   if (comboCount > 1) {
     showCombo("🔥 COMBO x" + comboCount + " +" + bonus);
